@@ -26,8 +26,7 @@ public class RegistrationIntentService extends IntentService implements PushCons
         try {
             InstanceID instanceID = InstanceID.getInstance(this);
             String senderID = sharedPreferences.getString(SENDER_ID, "");
-            String token = instanceID.getToken(senderID,
-                    GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            String token = instanceID.getToken(senderID, "GCM", null);
             Log.i(LOG_TAG, "new GCM Registration Token: " + token);
 
             // save new token
